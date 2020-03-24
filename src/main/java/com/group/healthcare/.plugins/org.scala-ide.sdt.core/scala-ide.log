@@ -1,0 +1,4 @@
+2020-03-24 16:50:03,885 ERROR [Worker-14: Importing Maven projects] - System.err - [org.eclipse.jdt.launching] error can't determine implemented interfaces of missing type org.eclipse.jdt.internal.core.manipulation.JavaElementLabelComposerCore
+ [Xlint:cantFindType]
+2020-03-24 16:52:19,633 ERROR [Worker-13: Building workspace] - System.err - log4j:WARN No appenders could be found for logger (org.eclipse.xtext.ui.internal.Activator).
+2020-03-24 16:52:19,633 ERROR [Worker-13: Building workspace] - System.err - log4j:WARN Please initialize the log4j system properly.
