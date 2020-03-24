@@ -22,7 +22,7 @@ public class DoctorController {
 	@Autowired
 	DoctorDao doctorDao;
 	
-	/* to save an employee*/
+	/* to save a doctor*/
 	@PostMapping("/employees")
 	public Doctor createEmployee(@Valid @RequestBody Doctor doctor) {
 		return doctorDao.save(doctor);
