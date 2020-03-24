@@ -1,6 +1,7 @@
 package com.group.healthcare.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -12,9 +13,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.group.healthcare.dao.DoctorDao;
-import com.group.healthcare.entity.Doctor;;
+import com.group.healthcare.entity.Doctor;
+
+@RestController
+@RequestMapping("/doctor")
 
 public class DoctorController {
 
@@ -23,20 +29,24 @@ public class DoctorController {
 	DoctorDao doctorDao;
 	
 	/* to save a doctor*/
-	@PostMapping("/employees")
+	@PostMapping("/register")
 	public Doctor createEmployee(@Valid @RequestBody Doctor doctor) {
+		
+		UUID uuid = UUID.randomUUID();
+        String randomUUIDString = uuid.toString();
+//		doctor.(randomUUIDString);
 		return doctorDao.save(doctor);
 	}
 	
-	/*get all employees*/
-	@GetMapping("/employees")
+	/*get all doctors*/
+	@GetMapping("/getall")
 	public List<Doctor> getAllEmployees(){
 		return doctorDao.findAll();
 	}
 	
-	/*get employee by empid*/
-	@GetMapping("/employees/{id}")
-	public ResponseEntity<Doctor> getEmployeeById(@PathVariable(value="id") Long doctorid){
+	/*get doctor by doctorid*/
+	@GetMapping("/getId/{id}")
+	public ResponseEntity<Doctor> getEmployeeById(@PathVariable(value="id") String doctorid){
 		
 		Doctor doctor=doctorDao.findOne(doctorid);
 		
@@ -48,9 +58,9 @@ public class DoctorController {
 	}
 	
 	
-	/*update an employee by empid*/
-	@PutMapping("/employees/{id}")
-	public ResponseEntity<Doctor> updateEmployee(@PathVariable(value="id") Long doctorid,@Valid @RequestBody Doctor doctorDetails){
+	/*update an doctor by doctorid*/
+	@PutMapping("/update/{id}")
+	public ResponseEntity<Doctor> updateEmployee(@PathVariable(value="id") String doctorid,@Valid @RequestBody Doctor doctorDetails){
 		
 		Doctor doctor=doctorDao.findOne(doctorid);
 		if(doctor==null) {
@@ -68,9 +78,9 @@ public class DoctorController {
 		
 	}
 	
-	/*Delete an employee*/
-	@DeleteMapping("/employees/{id}")
-	public ResponseEntity<Doctor> deleteEmployee(@PathVariable(value="id") Long doctorid){
+	/*Delete an doctor*/
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Doctor> deleteEmployee(@PathVariable(value="id") String doctorid){
 		
 		Doctor doctor=doctorDao.findOne(doctorid);
 		if(doctor==null) {

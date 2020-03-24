@@ -10,7 +10,13 @@ For the usage inside an IDE do the following.
 
 	1. Make sure you have an Eclipse with m2e installed.
 	
-	2. import the checked out code through File > Import > Existing Maven Project
+	2. import the checked out code through File > Import > Existing Maven Project > Give Your code Directory
+
+Install lombok for your EClipse
+
+https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/
+
+
 	
- 
+
 

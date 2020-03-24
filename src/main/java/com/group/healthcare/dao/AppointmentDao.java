@@ -2,8 +2,11 @@ package com.group.healthcare.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.group.healthcare.entity.Appointment;
 import com.group.healthcare.repository.AppointmentRepository;
+@Service
 
 public class AppointmentDao {
 	AppointmentRepository appointmentRepository;
@@ -23,7 +26,7 @@ public class AppointmentDao {
 	
 	
 	/*get an employee by id*/
-	public Appointment findOne(Long appointmentid) {
+	public Appointment findOne(int appointmentid) {
 		return appointmentRepository.getOne(appointmentid);
 	}
 	

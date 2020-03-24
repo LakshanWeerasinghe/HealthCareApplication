@@ -3,9 +3,11 @@ package com.group.healthcare.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.group.healthcare.entity.Patient;
 import com.group.healthcare.repository.PatientRepository;
+@Service
 
 public class PatientDao {
 
@@ -27,7 +29,7 @@ public class PatientDao {
 	
 	
 	/*get an employee by id*/
-	public Patient findOne(Long patientid) {
+	public Patient findOne(String patientid) {
 		return patientRepository.getOne(patientid);
 	}
 	
